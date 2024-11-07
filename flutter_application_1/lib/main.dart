@@ -1,119 +1,42 @@
-import 'package:flutter/material.dart';
-
+import 'dart:io';
+// import 'human.dart';
+ 
 void main() {
-  runApp(const MyApp());
+  // Human ahmed = Human(hairColor: 'black', height: 173, weight: 75);
+  // print(ahmed.hairColor);
+  // print(ahmed.weight);
+  // ahmed.walk();
+  // ahmed.setnumofarms(-5);
+  // print(ahmed.getnumofarms());
+  lion scar = lion();
+  dog jack = dog();
+  jack.eat();
+  scar.eat();
+  jack.park();
+  List<Animals>animals=[jack,scar];
+  print(animals[0].numoflimbs);
 }
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Assignment 1',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Assignment 1'),
-    );
+ 
+class Animals {
+  int numoflimbs = 4;
+  void eat() {
+    print('eating');
   }
 }
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
+ 
+class lion extends Animals {
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  void eat() {
+    print('lion eating');
+  }
+ 
+  void roar() {
+    print('roaring');
+  }
 }
-
-class _MyHomePageState extends State<MyHomePage> {
-  
-  String name = 'Yehia Tarek';
-  int age = 20;
-  double height = 1.65; // in meters
-  bool isStudent = true;
-
-
-  @override
-  void initState() {
-    super.initState();
-
-    print('Name:$name, Type:${name.runtimeType}');
-    print('Age:$age, Type:${age.runtimeType}');
-    print('Height:$height, Type:${height.runtimeType}');
-    print('Student:$isStudent, Type:${isStudent.runtimeType}');
-
-  int year = 1994;
-  for (int year=1994;year <= 2024 ;year++)
-  {
-    print(year);
-  }
-  
-
-    if (age   >=   18)
-    {
-      print('You are an adult.');
-    } 
-    else {
-      print('You are not an adult.');
-    }
-  }
-
-  
-  int _counter = 0;
-
-
-
-  int sumNum(){
-    int x =3;
-    int y =3;
-    int z = x+y;
-    return z;
-  }
-  void d(){
-    int x =3;
-    int y =3;
-    int z = x+y;
-    print(z);
-  }
-
-
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
+ 
+class dog extends Animals {
+  void park() {
+    print('park');
   }
 }
